@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FitLife</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+                scroll-padding-top: 120px;
+            }
+
+            body {
+                margin: 0;
+                background-color: black;
+                font-family: "Google Sans", sans-serif;
+                overflow-x: hidden;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            nav {
+                width: 100%;
+                min-height: 100px;
+                display: flex;
+                align-items: center;
+                gap: 40px;
+                padding: 0 2%;
+                background-color: rgb(38, 37, 37);
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .logo-fit {
+                width: 100px;
+                height: 100px;
+                flex-shrink: 0;
+            }
+
+            .menu {
+                font-size: 15px;
+                color: #d7d2d2;
+                display: flex;
+                text-align: center;
+                gap: 140px;
+                flex: 1;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+
+            a {
+                color: #d7d2d2;
+                display: inline-block;
+                text-decoration: none;
+            }
+
+            a:hover {
+                cursor: pointer;
+                text-decoration: underline;
+                transform: scale(1.1);
+                text-shadow: 0 0 10px rgb(211, 87, 19);
+            }
+
+            section {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 40px;
+                min-height: 650px;
+                margin-top: 0;
+                padding: 40px 2%;
+            }
+
+            .titolo {
+                display: flex;
+                flex: 1 1 280px;
+                flex-direction: column;
+                justify-content: center;
+                margin: 0 50px 0 130px;
+            }
+
+            .h {
+                color: #d7d2d2;
+                font-size: 60px;
+                margin: 0 50px;
+            }
+
+            .h2 {
+                color: rgb(211, 87, 19);
+            }
+
+            .sottotitolo {
+                width: 100%;
+                font-size: 30px;
+                color: #d7d2d2;
+                display: flex;
+                flex: 0 1 auto;
+                align-items: center;
+                margin: 0 50px;
+            }
+
+            .fitnessgirl {
+                display: flex;
+                flex: 1 1 520px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .girl {
+                height: auto;
+                width: 100%;
+                display: block;
+                transform: translateY(-20px);
+            }
+
+            main {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 40px;
+                padding: 0 2%;
+                margin: 0 auto;
+                width: 100%;
+            }
+
+            .cards-container {
+                width: auto;
+                max-width: 650px;
+                flex: 1 1 650px;
+                height: auto;
+                margin: 0 0 0 180px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 30px;
+            }
+
+            .hero-card {
+                width: 100%;
+                max-width: 650px;
+                min-height: 100px;
+                height: auto;
+                background-color: rgb(38, 37, 37);
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px 30px;
+                padding: 18px 20px;
+            }
+
+            .hero-card:hover {
+                box-shadow: 0 0 30px 4px #d3561375;
+                transform: scale(1.02);
+            }
+
+            .icon {
+                width: 55px;
+                height: 55px;
+                flex: 0 0 55px;
+            }
+
+            h3 {
+                color: #d7d2d2;
+                font-size: 20px;
+                flex: 1 1 300px;
+                margin: 0;
+            }
+
+            .pcard {
+                color: #d7d2d2e3;
+                font-size: 16px;
+                flex: 1 1 100%;
+                margin: 0;
+                padding-left: 85px;
+            }
+
+            .citazione {
+                width: auto;
+                max-width: 450px;
+                height: auto;
+                margin-left: 200px;
+                padding: 20px;
+                /* flex: 1 1 320px; */
+                display: flex;
+                align-items: center;
+                align-self: center;
+                transform: translateX(120px);
+            }
+
+            .cit {
+                font-size: 20px;
+                word-spacing: 5px;
+                line-height: 1.5;
+                color: #d7d2d2e3;
+            }
+
+            .trattino {
+                color: #ff6a00;
+                font-size: 20px;
+                text-shadow: 0 0 5px #ff6a00aa;
+            }
+
+            .paragrafi {
+                width: 100%;
+                max-width: 1500px;
+                flex: 0 0 100%;
+                min-height: 600px;
+                height: auto;
+                background-color: black;
+                border-radius: 20px;
+                margin: 0 0 60px 140px;
+                padding: 30px 30px 30px 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .picon {
+                width: 55px;
+                height: 55px;
+                flex-shrink: 0;
+            }
+
+            h4 {
+                color: #d7d2d2e3;
+                text-decoration: underline;
+            }
+
+            .titolparagraph {
+                color: #d7d2d2e3;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .paragrafo1,
+            .paragrafo2 {
+                display: flex;
+                justify-content: flex-start;
+                text-align: left;
+                gap: 20px;
+            }
+
+            footer {
+                width: 100%;
+                margin-top: auto;
+                padding: 38px 4% 20px;
+                background-color: rgb(38, 37, 37);
+                border-top: 2px solid rgb(211, 87, 19);
+                color: #d7d2d2;
+                display: flex;
+                flex-direction: column;
+                gap: 28px;
+            }
+
+            .footer-content {
+                width: 100%;
+                max-width: 1400px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1.4fr repeat(3, 1fr);
+                gap: 40px;
+            }
+
+            .footer-brand p,
+            .footer-column p {
+                color: #d7d2d2e3;
+                font-size: 14px;
+                line-height: 1.6;
+                margin: 8px 0 0;
+            }
+
+            .footer-logo {
+                width: 85px;
+                height: 85px;
+                object-fit: contain;
+                flex-shrink: 0;
+            }
+
+            .footer-column {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .footer-column h5 {
+                color: rgb(211, 87, 19);
+                font-size: 16px;
+                margin: 0 0 4px;
+            }
+
+            .footer-column a {
+                color: #d7d2d2;
+                font-size: 14px;
+            }
+
+            .footer-column a:hover {
+                color: rgb(211, 87, 19);
+            }
+
+            .footer-bottom {
+                width: 100%;
+                max-width: 1400px;
+                margin: 0 auto;
+                padding-top: 18px;
+                border-top: 1px solid #d7d2d233;
+                color: #d7d2d2e3;
+                font-size: 13px;
+                text-align: center;
+            }
+
+            @media (max-width: 850px) {
+                .footer-content {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 520px) {
+                .footer-content {
+                    grid-template-columns: 1fr;
+                    text-align: center;
+                }
+
+                .footer-column {
+                    align-items: center;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 1. NAVBAR / HEADER -->
+        <header>
+            <nav>
+                <img class="logo-fit" src="logofit-trasparente.png" alt="" />
+
+                <div class="menu">
+                    <a href="#perche"> Perché iniziare ad Allenarsi </a>
+                    <a href="#benefici"> Benefici della Sala Pesi </a>
+                    <a href="#mente"> Mente e Corpo </a>
+                    <a href="#ricerche"> Ricerche Scientifiche </a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- 2. HERO SECTION (La prima schermata) -->
+
+        <section>
+            <div class="titolo">
+                <h1 class="h">Punta sempre su</h1>
+                <h2 class="h2 h">te stesso</h2>
+
+                <div class="sottotitolo">
+                    <p>
+                        NON È SOLO una questione di aspetto fisico,<br />
+                        ma un investimento per la salute, la mente e <br />
+                        qualità della vita, a qualsiasi età
+                    </p>
+                </div>
+            </div>
+
+            <div class="fitnessgirl">
+                <img
+                    class="girl"
+                    src="donnaforte.jpg"
+                    alt="allenamento donna"
+                />
+            </div>
+        </section>
+
+        <main>
+            <div class="cards-container">
+                <div class="card1 hero-card">
+                    <img class="icon" src="manubrio.png" alt="" />
+                    <h3 id="perche">5 Motivi per iniziare ad allenarsi</h3>
+                    <p class="pcard">
+                        Allenarsi aiuta a sentirsi più energici, costruire
+                        forza, prendersi cura della salute, scaricare la
+                        tensione e raggiungere nuovi obiettivi. Per approfondire
+                        <a href="#iniziare"> Scopri di più</a>
+                    </p>
+                </div>
+
+                <div class="card2 hero-card">
+                    <img class="icon" src="cuore.png" alt="" />
+                    <h3 id="benefici">
+                        Quali benefici apporta la sala pesi al corpo?
+                    </h3>
+                    <p class="pcard">
+                        Un programma con i pesi può aumentare la forza e la
+                        massa muscolare e contribuire alla salute di ossa e
+                        articolazioni.
+                        <a href="#benefici-dettaglio">Scopri di più</a>
+                    </p>
+                </div>
+
+                <div class="card3 hero-card">
+                    <img class="icon" src="cervello.png" alt="" />
+                    <h3 id="mente">
+                        Quali sono le relazioni tra la mente, corpo e
+                        allenamento?
+                    </h3>
+                    <p class="pcard">
+                        L'attività fisica coinvolge anche la mente: può favorire
+                        il buonumore, aiutare a gestire lo stress e migliorare
+                        la qualità del sonno.
+                        <a href="#mente-dettaglio">Scopri di più</a>
+                    </p>
+                </div>
+
+                <div class="card4 hero-card">
+                    <img class="icon" src="provetta.png" alt="" />
+                    <h3 id="ricerche">
+                        Studi che dimostrano i vantaggi a lungo termine
+                    </h3>
+                    <p class="pcard">
+                        Le ricerche associano l'attività fisica regolare a
+                        benefici per la salute e il benessere nel tempo.
+                        <a href="#ricerche-dettaglio">Scopri di più</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- citazione affiancata alle quattro card -->
+            <div class="citazione">
+                <p class="cit">
+                    <em>
+                        Chi si dedica alla scienza o ad altre attività
+                        intellettuali, deve coltivare anche il corpo tramite
+                        l'allenamento fisico, mentre chi si dedica a coltivare
+                        il corpo, deve coltivare anche la mente e l'anima.
+                        <br />
+                        <br />
+                        <strong class="trattino"> - </strong>
+                        Platone
+                    </em>
+                </p>
+            </div>
+
+            <div class="paragrafi">
+                <div class="paragrafo1">
+                    <img
+                        class="pmanubrio picon"
+                        src="manubrio.png"
+                        alt="manubrio"
+                    />
+                    <div id="iniziare" class="titolparagraph">
+                        <h4>5 Motivi per iniziare ad allenarsi</h4>
+                        <p>
+                            Ci sono tanti buoni motivi per inserire il movimento
+                            nella propria settimana, senza dover essere già
+                            allenati o particolarmente sportivi. Il primo motivo
+                            è prendersi cura della salute. Muoversi con
+                            regolarità aiuta a mantenere il corpo attivo e a
+                            sviluppare resistenza. Anche le attività quotidiane
+                            possono diventare più semplici quando ci si sente
+                            più allenati. Camminare, salire le scale o giocare
+                            con i propri figli richiede energia. Allenarsi con
+                            gradualità può aiutare a sentirsi più preparati a
+                            queste attività. Un secondo motivo è diventare più
+                            forti. Esercizi scelti in base alle proprie capacità
+                            permettono di allenare diversi gruppi muscolari. La
+                            forza non serve soltanto nello sport, ma anche nei
+                            piccoli gesti di ogni giorno. Sollevare una borsa o
+                            spostare un oggetto può risultare più agevole con il
+                            tempo. Un terzo motivo è interrompere la
+                            sedentarietà. Trascorrere molte ore seduti è comune,
+                            soprattutto durante il lavoro o lo studio. Fare
+                            movimento offre una pausa attiva e invita a cambiare
+                            posizione e ritmo. Anche una breve passeggiata può
+                            essere un modo semplice per iniziare. Non occorre
+                            trasformare subito tutta la giornata. Si può partire
+                            da un'attività sostenibile, da ripetere con costanza
+                            durante la settimana. Un quarto motivo è dedicare
+                            tempo a sé. L'allenamento può diventare uno spazio
+                            personale, lontano per un momento dagli impegni
+                            quotidiani. Concentrarsi sui movimenti aiuta a
+                            restare presenti e a fare una pausa mentale. Alcune
+                            persone trovano nell'attività fisica un'occasione
+                            per scaricare la tensione accumulata. L'esperienza è
+                            diversa per ciascuno, ma può essere piacevole e
+                            gratificante. Il quinto motivo riguarda la
+                            soddisfazione di raggiungere obiettivi concreti e
+                            realistici. Completare una sessione o imparare un
+                            esercizio può dare un senso di progresso. Annotare i
+                            risultati aiuta a riconoscere i miglioramenti che
+                            altrimenti passerebbero inosservati. I progressi non
+                            si misurano soltanto aumentando i pesi o correndo
+                            più velocemente. Anche sentirsi più sicuri nei
+                            movimenti è un risultato importante da valorizzare.
+                            Allenarsi con altre persone può rendere l'esperienza
+                            più piacevole e motivante. Un corso offre una
+                            routine organizzata e permette di condividere un
+                            obiettivo comune. Anche un amico può aiutare a
+                            mantenere un appuntamento dedicato al movimento. Non
+                            è però necessario allenarsi in gruppo: si può
+                            scegliere la modalità preferita. La scelta
+                            dell'attività dovrebbe tenere conto dei propri gusti
+                            e delle proprie possibilità. Camminare, nuotare,
+                            ballare o usare i pesi sono opzioni diverse, tutte
+                            da valutare. È più facile continuare quando
+                            l'attività è piacevole e compatibile con la propria
+                            vita. Orari, spostamenti e impegni familiari possono
+                            influenzare la scelta del programma. Per questo
+                            conviene pianificare sessioni realistiche, evitando
+                            di fissare obiettivi troppo ambiziosi. All'inizio è
+                            normale avere bisogno di tempo per prendere
+                            confidenza con gli esercizi. La tecnica va imparata
+                            con calma, chiedendo aiuto se qualcosa non è chiaro.
+                            Aumentare gradualmente l'impegno permette di
+                            ascoltare le risposte del proprio corpo. La
+                            stanchezza dopo una sessione può capitare, ma dolore
+                            intenso o persistente va considerato. In questi casi
+                            è meglio fermarsi e chiedere un parere qualificato.
+                            Il riposo non rappresenta una rinuncia e fa parte di
+                            un percorso equilibrato. Alternare attività e
+                            recupero aiuta a rendere la routine più sostenibile.
+                            Anche la costanza non significa allenarsi ogni
+                            giorno senza mai fare pause. Significa trovare un
+                            ritmo che si riesce a mantenere nel corso delle
+                            settimane. I cambiamenti duraturi raramente arrivano
+                            da una singola seduta molto impegnativa. Si
+                            costruiscono invece attraverso abitudini ripetute e
+                            adattate nel tempo. Se una settimana è più
+                            complicata, si può riprendere senza colpevolizzarsi.
+                            Ogni occasione per muoversi può essere un passo
+                            utile verso il proprio obiettivo. Con pazienza, il
+                            movimento può diventare una parte naturale della
+                            vita quotidiana. La motivazione può variare da un
+                            giorno all'altro, ed è del tutto normale. Una
+                            routine semplice aiuta a non dipendere soltanto
+                            dall'entusiasmo iniziale. Preparare in anticipo
+                            abiti e orario può rendere più facile cominciare.
+                            Anche scegliere un luogo comodo riduce gli ostacoli
+                            pratici all'allenamento. L'obiettivo non è essere
+                            perfetti, ma trovare un percorso personale e
+                            fattibile. Iniziare con poco è meglio che aspettare
+                            il momento ideale. Il primo passo può essere breve,
+                            purché sia adatto alle proprie esigenze. Col tempo
+                            si potrà decidere se aumentare la durata o la
+                            frequenza. Prendersi cura di sé è un percorso, non
+                            una gara con gli altri. I cinque motivi possono
+                            essere diversi per ogni persona e in ogni fase della
+                            vita. L'importante è riconoscere ciò che rende il
+                            movimento significativo per sé. Con obiettivi
+                            realistici e un po' di pazienza, allenarsi può
+                            diventare una buona abitudine.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="paragrafo2">
+                    <img class="pcuore picon" src="cuore.png" alt="cuore" />
+                    <div class="titolparagraph">
+                        <h4>Quali benefici apporta la sala pesi al corpo?</h4>
+                        <p id="benefici-dettaglio">
+                            La sala pesi offre la possibilità di allenare la
+                            forza attraverso esercizi differenti. Si possono
+                            usare macchine, manubri, bilancieri o il peso del
+                            proprio corpo. Ogni attrezzo permette di eseguire
+                            movimenti con caratteristiche e livelli diversi. Gli
+                            esercizi vanno scelti in base agli obiettivi e
+                            all'esperienza personale. Chi è alle prime armi può
+                            cominciare con movimenti semplici e carichi leggeri.
+                            La tecnica corretta è importante prima di aumentare
+                            l'intensità. Imparare il gesto con calma aiuta a
+                            controllare meglio ogni ripetizione. Un
+                            professionista può mostrare come regolare le
+                            macchine e gli attrezzi. Può anche suggerire
+                            varianti accessibili alle capacità di chi si allena.
+                            Con una pratica regolare, gli esercizi possono
+                            aiutare a sviluppare forza. Nel tempo può aumentare
+                            anche la massa muscolare, secondo il programma
+                            seguito. Questi cambiamenti sono graduali e
+                            dipendono da molte caratteristiche individuali. Età,
+                            esperienza, recupero e alimentazione possono
+                            influire sui risultati ottenuti. La forza è utile
+                            anche fuori dalla palestra e dallo sport. Portare la
+                            spesa o spostare oggetti sono esempi di gesti
+                            quotidiani. Anche alzarsi da una sedia richiede
+                            coordinazione e forza. Allenare il corpo può
+                            sostenere la capacità di affrontare queste attività.
+                            Gli esercizi coinvolgono gruppi muscolari diversi.
+                            Gambe e glutei partecipano a molti movimenti che
+                            richiedono stabilità e spostamento. Schiena e
+                            braccia aiutano a tirare, sollevare e controllare
+                            gli oggetti. I muscoli del tronco contribuiscono
+                            alla stabilità durante numerosi esercizi. Un
+                            programma equilibrato considera il corpo nel suo
+                            insieme. Non è necessario allenare ogni muscolo con
+                            moltissimi esercizi in una sola seduta. La selezione
+                            può essere semplice e costruita in modo progressivo.
+                            L'allenamento di resistenza è studiato anche per il
+                            suo rapporto con la salute ossea. Mantenere muscoli
+                            attivi e funzionali può essere utile in diverse fasi
+                            della vita. La mobilità e il controllo del movimento
+                            sono aspetti da considerare insieme alla forza. Una
+                            buona esecuzione richiede attenzione alla postura e
+                            all'ampiezza del gesto. Il movimento dovrebbe
+                            restare controllato, senza slanci non necessari.
+                            Respirare con regolarità durante l'esercizio aiuta a
+                            mantenere la concentrazione. Trattenere il fiato a
+                            lungo non è necessario nella maggior parte dei casi.
+                            Prima di iniziare una sessione, è utile preparare il
+                            corpo al lavoro. Un riscaldamento adatto può
+                            includere movimenti leggeri e specifici per
+                            l'allenamento. Le prime serie possono essere svolte
+                            con un carico contenuto. In questo modo si prende
+                            confidenza con il gesto previsto. Il carico va
+                            scelto con attenzione e non deve compromettere la
+                            tecnica. Se l'esercizio diventa incontrollato, può
+                            essere opportuno ridurre l'impegno. Il recupero tra
+                            le serie permette di prepararsi al lavoro
+                            successivo. I tempi possono variare in base
+                            all'esercizio e all'obiettivo della sessione. Anche
+                            i giorni senza pesi possono contribuire a una
+                            programmazione equilibrata. Dormire e recuperare
+                            sono aspetti che accompagnano il lavoro svolto. I
+                            progressi si possono osservare in modi diversi e non
+                            solo sul peso. Si può notare una migliore tecnica,
+                            più controllo o maggiore facilità nei movimenti. A
+                            volte si riesce a completare qualche ripetizione in
+                            più con lo stesso carico. In altri momenti si impara
+                            a usare un attrezzo in modo più sicuro. Tenere
+                            traccia degli allenamenti può aiutare a valutare
+                            questi cambiamenti. Non è necessario confrontare i
+                            risultati con quelli di altre persone. Ogni percorso
+                            parte da condizioni e obiettivi differenti.
+                            Aumentare il carico gradualmente è preferibile a
+                            fare salti improvvisi. Una programmazione adeguata
+                            tiene conto di frequenza, volume e recupero. Chi ha
+                            poca esperienza può chiedere indicazioni a un
+                            istruttore qualificato. Chi presenta condizioni
+                            mediche particolari dovrebbe chiedere consiglio al
+                            proprio medico. Dolore acuto o persistente non va
+                            ignorato. Fermarsi e chiedere un parere può aiutare
+                            a capire come procedere. La sala pesi non è una gara
+                            e non richiede risultati immediati. Con pazienza e
+                            attenzione alla tecnica, può diventare uno strumento
+                            utile. Un programma realistico e personalizzato
+                            aiuta a mantenere la continuità. La cosa più
+                            importante è allenarsi in modo adatto alle proprie
+                            possibilità.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="paragrafo2">
+                    <img
+                        class="pcervello picon"
+                        src="cervello.png"
+                        alt="cervello"
+                    />
+                    <div class="titolparagraph">
+                        <h4>
+                            Quali sono le relazioni tra la mente, corpo e
+                            allenamento?
+                        </h4>
+                        <p id="mente-dettaglio">
+                            Mente e corpo non sono dimensioni separate. Quello
+                            che facciamo con il corpo può influire anche sul
+                            modo in cui ci sentiamo. Allo stesso tempo, il
+                            nostro stato mentale può cambiare la voglia di
+                            muoverci. Una giornata stressante può rendere più
+                            difficile iniziare un allenamento. In altri momenti,
+                            fare attività può offrire una pausa dalla routine.
+                            Durante una sessione si può prestare attenzione al
+                            respiro e ai gesti. Questa attenzione aiuta a
+                            percepire come si muove il proprio corpo. Alcune
+                            persone apprezzano il ritmo regolare di una
+                            camminata o di una corsa. Altre preferiscono
+                            esercizi di forza, sport di squadra o attività di
+                            gruppo. Non esiste una sola scelta giusta per tutti.
+                            Il piacere dell'attività può influire sulla voglia
+                            di continuare nel tempo. Muoversi con regolarità può
+                            accompagnarsi a una sensazione di maggiore
+                            benessere. Per alcune persone può favorire un tono
+                            dell'umore più positivo. L'attività fisica può
+                            essere un modo per affrontare la tensione
+                            quotidiana. Gli effetti non sono uguali per ogni
+                            persona e in ogni situazione. È meglio considerare
+                            l'esercizio come una parte di uno stile di vita
+                            equilibrato. Un allenamento non deve diventare un
+                            obbligo o una fonte di ulteriore stress. Gli
+                            obiettivi dovrebbero essere realistici, flessibili e
+                            adatti alle proprie giornate. Anche una sessione
+                            breve può rappresentare un'occasione per muoversi.
+                            La soddisfazione può arrivare dall'aver rispettato
+                            un impegno personale. Imparare un esercizio nuovo
+                            può dare un senso di conquista. Raggiungere un
+                            piccolo traguardo può aiutare a rafforzare la
+                            fiducia. È utile concentrarsi sui progressi
+                            individuali invece che sul confronto. Ogni corpo ha
+                            tempi e capacità che meritano rispetto.
+                            L'allenamento può anche avere una dimensione
+                            sociale. Un corso o una passeggiata condivisa
+                            permettono di stare in compagnia. Per qualcuno
+                            questo rende più piacevole l'attività fisica. Per
+                            altri, allenarsi da soli è un momento di
+                            tranquillità. Si può sperimentare e scegliere ciò
+                            che fa sentire a proprio agio. Il movimento può
+                            aiutare a costruire una routine quotidiana più
+                            regolare. Stabilire orari accessibili rende più
+                            semplice organizzarsi. Preparare in anticipo un
+                            piano può ridurre l'indecisione. La routine deve
+                            però lasciare spazio agli imprevisti e al recupero.
+                            La stanchezza varia nel corso della settimana e
+                            delle stagioni. Ascoltare i segnali del corpo aiuta
+                            a regolare l'intensità. Riposarsi quando serve non
+                            significa perdere i progressi. Il recupero è una
+                            componente normale di ogni percorso. Anche il sonno
+                            e l'alimentazione contribuiscono al benessere
+                            complessivo. L'esercizio non può sostituire queste
+                            altre abitudini importanti. Una sessione troppo
+                            intensa non è necessariamente più efficace. La
+                            regolarità è spesso più sostenibile degli sforzi
+                            occasionali. Si può iniziare con attività leggere e
+                            aumentare con calma. Camminare è una possibilità
+                            accessibile per molte persone, se compatibile con la
+                            salute. Il ballo unisce movimento e musica in una
+                            forma espressiva. Il nuoto permette di muoversi in
+                            un ambiente diverso dalla palestra. Gli esercizi con
+                            i pesi possono offrire obiettivi concreti e
+                            misurabili. Ognuna di queste attività può essere
+                            adattata alle preferenze personali. Cambiare
+                            attività ogni tanto può aiutare a mantenere vivo
+                            l'interesse. È comunque possibile seguire una
+                            disciplina preferita per lungo tempo. La scelta
+                            migliore è quella che si riesce a mantenere con
+                            serenità. Quando ci si allena in gruppo, è
+                            importante rispettare i propri limiti. Non occorre
+                            tenere il passo di chi ha più esperienza. Chiedere
+                            una modifica dell'esercizio è una scelta
+                            responsabile. Se una sensazione di dolore compare
+                            durante il movimento, va ascoltata. Se il disagio
+                            persiste, è opportuno chiedere consiglio
+                            qualificato. L'attività fisica può sostenere il
+                            benessere, ma non è una cura universale. Non
+                            sostituisce un percorso di supporto psicologico o
+                            medico. In caso di difficoltà persistenti,
+                            rivolgersi a un professionista è importante. Ogni
+                            persona può costruire un rapporto diverso con
+                            l'esercizio. A volte serve tempo per trovare
+                            un'attività gradita. La curiosità può essere un buon
+                            punto di partenza. Provare con calma nuove
+                            possibilità aiuta a scoprire le proprie preferenze.
+                            L'obiettivo è integrare il movimento senza
+                            trascurare gli altri bisogni. Corpo e mente possono
+                            così essere sostenuti da abitudini equilibrate. Fare
+                            spazio al movimento è un modo per prendersi cura di
+                            sé.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="paragrafo2">
+                    <img
+                        class="pprovetta picon"
+                        src="provetta.png"
+                        alt="provetta"
+                    />
+                    <div class="titolparagraph">
+                        <h4>Studi che dimostrano i vantaggi a lungo termine</h4>
+                        <p id="ricerche-dettaglio">
+                            La ricerca scientifica studia da tempo il rapporto
+                            tra movimento e salute. Sono stati analizzati gruppi
+                            diversi e modalità di attività differenti. Nel
+                            complesso, le evidenze disponibili associano
+                            l'attività fisica regolare a benefici per la salute
+                            generale. I risultati riguardano aspetti della
+                            funzionalità e del benessere. È importante ricordare
+                            che un'associazione non dimostra da sola che un
+                            singolo esercizio causi ogni beneficio osservato.
+                            Gli studi possono avere metodi, durate e
+                            partecipanti diversi. Per questo le conclusioni si
+                            valutano nel loro insieme. Le raccomandazioni
+                            sanitarie si basano su molte prove disponibili. Non
+                            dipendono soltanto dal risultato di una ricerca
+                            isolata. Le indicazioni generali promuovono il
+                            movimento regolare durante la settimana. Invitano
+                            anche a ridurre lunghi periodi di inattività. Le
+                            attività aerobiche sono una delle modalità
+                            considerate. Camminare a passo sostenuto, andare in
+                            bicicletta o nuotare sono esempi di attività
+                            possibili. La scelta va adattata alle preferenze e
+                            alle condizioni individuali. Anche l'allenamento di
+                            forza viene preso in considerazione. Può contribuire
+                            al mantenimento della forza muscolare nel tempo. La
+                            ricerca esamina inoltre la capacità di svolgere
+                            gesti quotidiani. Portare oggetti, alzarsi e
+                            mantenere l'equilibrio sono funzioni importanti per
+                            l'autonomia. Con l'avanzare dell'età, conservare
+                            queste capacità può essere rilevante per la qualità
+                            della vita. Mobilità e forza possono essere
+                            sostenute da attività adeguate. Gli esercizi
+                            dovrebbero essere scelti considerando la persona e
+                            il contesto. Non esiste un unico programma valido
+                            per tutte le età. Le condizioni di salute,
+                            l'esperienza e le abitudini influenzano le
+                            possibilità individuali. Anche il livello iniziale è
+                            importante nella pianificazione. Chi è già attivo
+                            può avere esigenze diverse rispetto a chi riprende
+                            dopo una pausa. Una ripresa graduale aiuta a
+                            ricostruire la routine con calma. Aumentare
+                            improvvisamente volume e intensità non è necessario
+                            per iniziare. Si può cominciare con sessioni brevi e
+                            gestibili. In seguito, la durata o la frequenza
+                            possono crescere gradualmente. Alternare attività e
+                            recupero è una strategia ragionevole. Il riposo
+                            permette di distribuire meglio l'impegno nel tempo.
+                            Le pause possono variare in base al tipo di
+                            attività. Anche la regolarità conta: piccoli
+                            appuntamenti ripetuti possono essere più facili da
+                            mantenere di sforzi molto intensi ma sporadici. Le
+                            abitudini sostenibili sono importanti per
+                            proseguire. Aderire a un programma dipende anche da
+                            quanto è pratico. Luogo, orari e preferenze possono
+                            incidere sulla continuità. Per questo è utile
+                            scegliere attività accessibili. I risultati nel
+                            lungo periodo dipendono da numerosi fattori. Tra
+                            questi ci sono la frequenza e l'intensità
+                            dell'attività. Contano anche il recupero, le
+                            condizioni personali e la costanza. Le risposte
+                            individuali possono essere diverse. Un programma va
+                            quindi considerato in modo flessibile. La ricerca
+                            non promette gli stessi risultati per tutti.
+                            Descrive tendenze generali osservate in specifici
+                            gruppi e contesti. Per interpretare un risultato
+                            bisogna considerare come è stato ottenuto. È utile
+                            sapere chi ha partecipato, per quanto tempo e con
+                            quali misure. Le conclusioni vanno lette insieme ai
+                            limiti dello studio. Per indicazioni pratiche, è
+                            meglio fare riferimento alle raccomandazioni di enti
+                            sanitari affidabili. Queste indicazioni sono
+                            aggiornate alla luce delle prove disponibili. Non
+                            sostituiscono una valutazione specifica delle
+                            necessità di ciascuno. In presenza di patologie,
+                            sintomi o dubbi sull'esercizio, è opportuno chiedere
+                            consiglio al medico. Un professionista qualificato
+                            può aiutare a scegliere esercizi appropriati. Può
+                            suggerire un carico adatto all'esperienza e alle
+                            capacità. Anche la supervisione iniziale può essere
+                            utile per apprendere la tecnica. L'obiettivo è
+                            rendere l'attività sicura e sostenibile. Le evidenze
+                            disponibili sostengono il valore del movimento
+                            regolare, ma è importante evitare semplificazioni.
+                            Nessun singolo allenamento garantisce da solo una
+                            salute perfetta. Il movimento è una componente di
+                            uno stile di vita più ampio. Alimentazione
+                            equilibrata, sonno e assistenza sanitaria sono
+                            importanti. Considerare insieme questi aspetti offre
+                            una prospettiva più completa. Nel tempo, la
+                            continuità permette di mantenere una routine attiva.
+                            Il programma può cambiare quando cambiano obiettivi
+                            o condizioni. Un approccio graduale e informato
+                            aiuta a proseguire con fiducia. Le ricerche
+                            continuano ad approfondire come adattare le attività
+                            a persone diverse. Le conoscenze possono evolvere
+                            man mano che emergono nuove prove. Per questo è
+                            utile affidarsi a informazioni aggiornate e
+                            attendibili. Il messaggio generale resta quello di
+                            scegliere un movimento adeguato, praticarlo con
+                            regolarità e rispettare le proprie possibilità.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 3. FOOTER -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" aria-label="Torna all'inizio">
+                        <img
+                            class="footer-logo"
+                            src="logofit-trasparente.png"
+                            alt="FitLife Studio"
+                        />
+                    </a>
+                    <p>Punta sempre su te stesso.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Servizi</h5>
+                    <a href="#benefici">Sala pesi</a>
+                    <a href="#mente">Mente e corpo</a>
+                    <a href="#perche">Allenamento e benessere</a>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Informazioni</h5>
+                    <a href="#iniziare">Perché allenarsi</a>
+                    <a href="#benefici-dettaglio">Benefici</a>
+                    <a href="#ricerche-dettaglio">Studi e ricerche</a>
+                </div>
+
+                <div class="footer-column">
+                    <h5>Contatti</h5>
+                    <p>FitLife Studio</p>
+                    <p>Per informazioni sui nostri servizi.</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">© 2026 FitLife Studio</div>
+        </footer>
+    </body>
+</html>
