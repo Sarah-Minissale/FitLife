@@ -77,13 +77,14 @@
             }
 
             section {
-                display: flex;
-                justify-content: space-between;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
                 align-items: center;
-                flex-wrap: wrap;
                 gap: 40px;
                 min-height: 650px;
-                margin-top: 0;
+                width: 100%;
+                max-width: 1500px;
+                margin: 0 auto;
                 padding: 40px 2%;
             }
 
@@ -130,23 +131,22 @@
             }
 
             main {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
                 align-items: flex-start;
-                justify-content: flex-start;
                 gap: 40px;
                 padding: 0 2%;
                 margin: 0 auto;
                 width: 100%;
+                max-width: 1500px;
             }
 
             .cards-container {
-                width: auto;
+                width: calc(100% - 130px);
                 max-width: 650px;
-                flex: 1 1 650px;
                 height: auto;
-                margin: 0 0 0 180px;
+                margin: 0 0 0 160px;
+                justify-self: start;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -195,16 +195,15 @@
             }
 
             .citazione {
-                width: auto;
+                width: 100%;
                 max-width: 450px;
                 height: auto;
-                margin-left: 200px;
+                margin: 0;
                 padding: 20px;
-                /* flex: 1 1 320px; */
                 display: flex;
                 align-items: center;
                 align-self: center;
-                transform: translateX(120px);
+                justify-self: center;
             }
 
             .cit {
@@ -221,14 +220,14 @@
             }
 
             .paragrafi {
-                width: 100%;
+                width: 82%;
                 max-width: 1500px;
-                flex: 0 0 100%;
+                grid-column: 1 / -1;
                 min-height: 600px;
                 height: auto;
                 background-color: black;
                 border-radius: 20px;
-                margin: 0 0 60px 140px;
+                margin: 0 0 0 130px;
                 padding: 30px 30px 30px 40px;
                 display: flex;
                 flex-direction: column;
@@ -330,6 +329,20 @@
             }
 
             @media (max-width: 850px) {
+                section,
+                main {
+                    grid-template-columns: 1fr;
+                }
+
+                .titolo {
+                    margin: 0 30px;
+                }
+
+                .cards-container {
+                    width: calc(100% - 60px);
+                    margin: 0 30px;
+                }
+
                 .footer-content {
                     grid-template-columns: repeat(2, 1fr);
                 }
